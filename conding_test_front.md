@@ -11,9 +11,9 @@ Even though you can use any tools/libs you want, we recommend you to use one of 
 
 ## Dependencies
 * API endpoint http://private-5d708-interviewfront.apiary-mock.com/transactions
-* [Mockup](mockup.png)
+* [Mockup](https://gist.githubusercontent.com/GabKlein/45e886536ccee6e9f678418aca37a77d/raw/67654000b2e76e7fb4c89b28e191f27e1de84bda/mockup.png)
 
-![Mockup](mockup.png)
+![Mockup](https://gist.githubusercontent.com/GabKlein/45e886536ccee6e9f678418aca37a77d/raw/67654000b2e76e7fb4c89b28e191f27e1de84bda/mockup.png)
 
 ## 1. Integration
 In this section, you will implement the mockup using a JS single-page application.
