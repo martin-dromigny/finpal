@@ -13,16 +13,12 @@
 
     <tbody>
        {{#each model as |transactions|}}
-       transaction:{{transaction.counterparty_name}} /
-       {{transaction.counterparty_name}}
        <tr>
-         <!-- {{#transactions-item item=transaction}}-->
-         <td>{{transaction.created_at}}</td>
-         <td>{{transaction.counterparty_name}}</td>
-         <td>{{transaction.operation_type}}</td>
-         <td>{{transaction.debit}}</td>
-         <td>{{transaction.amount}}{{transaction.currency}}</td>
-         <!-- {{/transactions-item}} -->
+         <td>{{transactions.created_at}}</td>
+         <td>{{transactions.counterparty_name}}</td>
+         <td>{{transactions.operation_type}}</td>
+         <td>{{transactions.debit}}</td>
+         <td>{{transactions.amount}}{{transaction.currency}}</td>
         </tr>
       {{/each}}
     </tbody>
