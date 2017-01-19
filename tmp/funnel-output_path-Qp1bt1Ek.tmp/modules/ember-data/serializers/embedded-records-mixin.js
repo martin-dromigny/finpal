@@ -1,0 +1,1 @@
+/Users/martin/Documents/workspace/finpal/tmp/funnel-input_base_path-ZjuusAjU.tmp/serializers/embedded-records-mixin.js

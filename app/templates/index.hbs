@@ -1,0 +1,29 @@
+<h1>Home Page</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><b>DD-MM-YYY</b></th>
+          <th>counterpartyName</th>
+          <th>Payment type</th>
+          <th>Amount</th>
+          <th></th>
+       </tr>
+    </thead>
+    <tbody>
+       {{#each model as |transactions|}}
+       <tr>
+         {{#transactions-item item=transactions}}
+         <td>{{transaction.createdAt}}</td>
+         <td>{{transaction.counterpartyName}}</td>
+         <td>{{transaction.debit}}</td>
+         <td>{{transaction.debit}}</td>
+         <td>{{transaction.debit}}</td>
+
+         {{/transactions-item}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

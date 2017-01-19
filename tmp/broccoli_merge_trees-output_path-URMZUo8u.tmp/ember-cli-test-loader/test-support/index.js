@@ -1,0 +1,1 @@
+/Users/martin/Documents/workspace/finpal/tmp/broccoli_merge_trees-input_base_path-oeRuoC63.tmp/17/ember-cli-test-loader/test-support/index.js

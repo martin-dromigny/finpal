@@ -1,0 +1,1 @@
+/Users/martin/Documents/workspace/finpal/tmp/funnel-input_base_path-YC7cWzFV.tmp/initializer-factory.js
