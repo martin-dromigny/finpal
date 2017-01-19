@@ -1,4 +1,12 @@
 <h1>Home Page</h1>
+tableau
+{{#each model as |transactions|}}
+  {{transactions}}
+{{/each }}
+items
+{{#each model as |transaction|}}
+  {{transaction}}
+{{/each }}
 
 <div class="table-responsive">
   <table class="table">
@@ -11,17 +19,17 @@
           <th></th>
        </tr>
     </thead>
+
     <tbody>
        {{#each model as |transaction|}}
        <tr>
-         {{#transactions-item item=transaction}}
-         <td>{{transaction.createdAt}}</td>
-         <td>{{transaction.counterpartyName}}</td>
+         <!-- {{#transactions-item item=transaction}}-->
+         <td>{{transaction.created_at}}</td>
+         <td>{{transaction.counterparty_name}}</td>
+         <td>{{transaction.operation_type}}</td>
          <td>{{transaction.debit}}</td>
-         <td>{{transaction.debit}}</td>
-         <td>{{transaction.debit}}</td>
-
-         {{/transactions-item}}
+         <td>{{transaction.amount}}{{transaction.currency}}</td>
+         <!-- {{/transactions-item}} -->
         </tr>
       {{/each}}
     </tbody>
