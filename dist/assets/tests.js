@@ -18,15 +18,6 @@ define('finpal/tests/app.jshint.lint-test', ['exports'], function (exports) {
     assert.ok(false, 'app.js should pass jshint.\napp.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\napp.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\napp.js: line 3, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\napp.js: line 4, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\napp.js: line 6, col 1, \'let\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\napp.js: line 13, col 3, \'object short notation\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\napp.js: line 18, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n7 errors');
   });
 });
-define('finpal/tests/components/transactions-item.jshint.lint-test', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint | components/transactions-item.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(false, 'components/transactions-item.js should pass jshint.\ncomponents/transactions-item.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncomponents/transactions-item.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
-  });
-});
 define('finpal/tests/controllers/index.jshint.lint-test', ['exports'], function (exports) {
   'use strict';
 
@@ -187,7 +178,7 @@ define('finpal/tests/models/transactions.jshint.lint-test', ['exports'], functio
   QUnit.module('JSHint | models/transactions.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'models/transactions.js should pass jshint.\nmodels/transactions.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nmodels/transactions.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
+    assert.ok(false, 'models/transactions.js should pass jshint.\nmodels/transactions.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nmodels/transactions.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nmodels/transactions.js: line 4, col 12, \'arrow function syntax (=>)\' is only available in ES6 (use \'esversion: 6\').\n\n3 errors');
   });
 });
 define('finpal/tests/resolver.jshint.lint-test', ['exports'], function (exports) {
@@ -214,7 +205,7 @@ define('finpal/tests/routes/index.jshint.lint-test', ['exports'], function (expo
   QUnit.module('JSHint | routes/index.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/index.js should pass jshint.\nroutes/index.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/index.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/index.js: line 5, col 3, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n3 errors');
+    assert.ok(false, 'routes/index.js should pass jshint.\nroutes/index.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/index.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/index.js: line 5, col 3, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nroutes/index.js: line 6, col 5, \'const\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n4 errors');
   });
 });
 define('finpal/tests/test-helper', ['exports', 'finpal/tests/helpers/resolver', 'ember-qunit'], function (exports, _finpalTestsHelpersResolver, _emberQunit) {

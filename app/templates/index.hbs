@@ -1,13 +1,4 @@
 <h1>Home Page</h1>
-tableau
-{{#each model as |transactions|}}
-  {{transactions}}
-{{/each }}
-items
-{{#each model as |transaction|}}
-  {{transaction}}
-{{/each }}
-
 <div class="table-responsive">
   <table class="table">
     <thead>
@@ -21,7 +12,9 @@ items
     </thead>
 
     <tbody>
-       {{#each model as |transaction|}}
+       {{#each model as |transactions|}}
+       transaction:{{transaction.counterparty_name}} /
+       {{transaction.counterparty_name}}
        <tr>
          <!-- {{#transactions-item item=transaction}}-->
          <td>{{transaction.created_at}}</td>
