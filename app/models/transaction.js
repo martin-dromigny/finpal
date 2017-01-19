@@ -12,6 +12,8 @@ export default DS.Model.extend({
   signe : Ember.computed('credit', function (){
     return this.get('credit')=='true'?'+':'';
   }),
+  up : Ember.computed.match('credit',/true/),
+  down : Ember.computed.match('debit',/true/),
   attachements : DS.attr(),
   size : Ember.computed('attachements', function (){
     return this.get('attachements').length;
