@@ -12,9 +12,9 @@
        </tr>
     </thead>
     <tbody>
-       {{#each model as |transactions|}}
+       {{#each model as |transaction|}}
        <tr>
-         {{#transactions-item item=transactions}}
+         {{#transactions-item item=transaction}}
          <td>{{transaction.createdAt}}</td>
          <td>{{transaction.counterpartyName}}</td>
          <td>{{transaction.debit}}</td>

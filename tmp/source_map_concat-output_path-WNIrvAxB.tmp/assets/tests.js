@@ -172,6 +172,15 @@ define('finpal/tests/integration/components/transactions-item-test.jshint.lint-t
     assert.ok(true, 'integration/components/transactions-item-test.js should pass jshint.');
   });
 });
+define('finpal/tests/models/transaction.jshint.lint-test', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | models/transaction.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'models/transaction.js should pass jshint.\nmodels/transaction.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nmodels/transaction.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
+  });
+});
 define('finpal/tests/models/transactions.jshint.lint-test', ['exports'], function (exports) {
   'use strict';
 
