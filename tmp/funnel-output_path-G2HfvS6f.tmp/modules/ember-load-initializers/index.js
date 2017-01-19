@@ -1,1 +1,0 @@
-/Users/martin/Documents/workspace/finpal/tmp/funnel-input_base_path-4D65ewQV.tmp/index.js

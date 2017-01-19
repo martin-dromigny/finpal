@@ -1,1 +1,0 @@
-/Users/martin/Documents/workspace/finpal/tmp/funnel-input_base_path-MOjxwi34.tmp/utils/class-factory.js

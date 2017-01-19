@@ -1,1 +1,0 @@
-/Users/martin/Documents/workspace/finpal/tmp/broccoli_merge_trees-input_base_path-47iakmG9.tmp/app.jshint.lint-test.js

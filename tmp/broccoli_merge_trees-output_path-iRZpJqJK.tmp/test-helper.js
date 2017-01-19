@@ -1,1 +1,0 @@
-/Users/martin/Documents/workspace/finpal/tmp/broccoli_merge_trees-input_base_path-n0aNbfoh.tmp/22/test-helper.js
