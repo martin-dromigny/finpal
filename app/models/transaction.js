@@ -9,5 +9,11 @@ export default DS.Model.extend({
   currency: DS.attr('string'),
   operation_type: DS.attr('string'),
   // attachements :
-
+  signe : Ember.computed('credit',()=>{
+    if (this.get('credit')){
+      return '+'
+    }else {
+      return '-';
+    }}
+  )
 });

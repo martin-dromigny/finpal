@@ -7,7 +7,7 @@
           <th>counterpartyName</th>
           <th>Payment type</th>
           <th>Amount</th>
-          <th></th>
+          <th><span class="glyphicon glyphicon-paperclip"></span></th>
        </tr>
     </thead>
 
@@ -17,7 +17,6 @@
          <td>{{transactions.created_at}}</td>
          <td>{{transactions.counterparty_name}}</td>
          <td>{{transactions.operation_type}}</td>
-         <td>{{transactions.debit}}</td>
          <td>{{transactions.amount}}{{transaction.currency}}</td>
         </tr>
       {{/each}}
