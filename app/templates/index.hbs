@@ -17,7 +17,10 @@
          <td>{{transactions.created_at}}</td>
          <td>{{transactions.counterparty_name}}</td>
          <td>{{transactions.operation_type}}</td>
-         <td>{{transactions.amount}}{{transaction.currency}}</td>
+         <td>{{transactions.signe}}{{transactions.amount}}{{transaction.currency}}<span class="glyphicon {{transaction.currencySymbol}}"></span></td>
+         <td>
+           <a href="{{transactions.url}}"><span class="glyphicon glyphicon-paperclip"></span></a>
+           {{transactions.size}}</td>
         </tr>
       {{/each}}
     </tbody>

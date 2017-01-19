@@ -218,9 +218,12 @@ define("finpal/instance-initializers/ember-data", ["exports", "ember-data/-priva
     initialize: _emberDataPrivateInstanceInitializersInitializeStoreService["default"]
   };
 });
+define('finpal/models/attachement', ['exports', 'ember-data'], function (exports, _emberData) {
+  exports['default'] = _emberData['default'].Model.extend({
+    url: _emberData['default'].attr('string')
+  });
+});
 define('finpal/models/transaction', ['exports', 'ember-data'], function (exports, _emberData) {
-  var _this = this;
-
   exports['default'] = _emberData['default'].Model.extend({
     created_at: _emberData['default'].attr('string'),
     counterparty_name: _emberData['default'].attr('string'),
@@ -231,10 +234,29 @@ define('finpal/models/transaction', ['exports', 'ember-data'], function (exports
     operation_type: _emberData['default'].attr('string'),
     // attachements :
     signe: Ember.computed('credit', function () {
-      if (_this.get('credit')) {
-        return '+';
+      return this.get('credit') == 'true' ? '+' : '';
+    }),
+    attachements: _emberData['default'].attr(),
+    size: Ember.computed('attachements', function () {
+      return this.get('attachements').length;
+    }),
+    currencySymbol: Ember.computed('currency', function () {
+      switch (this.get('currency')) {
+        case 'EUR':
+          return 'glyphicon glyphicon-eur';
+        case 'USD':
+          return 'glyphicon glyphicon-usd';
+        case 'GBD':
+          return 'glyphicon glyphicon-gbd ';
+        default:
+          return 'glyphicon glyphicon-eur';
+      }
+    }),
+    url: Ember.computed('attachements', function () {
+      if (this.get('attachements').length) {
+        return this.get('attachements')[0].url;
       } else {
-        return '-';
+        return "null";
       }
     })
   });
@@ -284,7 +306,7 @@ define("finpal/templates/application", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template({ "id": "N3XLZtgE", "block": "{\"statements\":[[\"open-element\",\"div\",[]],[\"static-attr\",\"class\",\"container\"],[\"flush-element\"],[\"text\",\"\\n  \"],[\"partial\",\"navbar\"],[\"text\",\"\\n  \"],[\"append\",[\"unknown\",[\"outlet\"]],false],[\"text\",\"\\n\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":true}", "meta": { "moduleName": "finpal/templates/application.hbs" } });
 });
 define("finpal/templates/index", ["exports"], function (exports) {
-  exports["default"] = Ember.HTMLBars.template({ "id": "dGsJ3kaY", "block": "{\"statements\":[[\"open-element\",\"h1\",[]],[\"flush-element\"],[\"text\",\"Home Page\"],[\"close-element\"],[\"text\",\"\\n\"],[\"open-element\",\"div\",[]],[\"static-attr\",\"class\",\"table-responsive\"],[\"flush-element\"],[\"text\",\"\\n  \"],[\"open-element\",\"table\",[]],[\"static-attr\",\"class\",\"table\"],[\"flush-element\"],[\"text\",\"\\n    \"],[\"open-element\",\"thead\",[]],[\"flush-element\"],[\"text\",\"\\n      \"],[\"open-element\",\"tr\",[]],[\"flush-element\"],[\"text\",\"\\n        \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"open-element\",\"b\",[]],[\"flush-element\"],[\"text\",\"DD-MM-YYY\"],[\"close-element\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"text\",\"counterpartyName\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"text\",\"Payment type\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"text\",\"Amount\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"open-element\",\"span\",[]],[\"static-attr\",\"class\",\"glyphicon glyphicon-paperclip\"],[\"flush-element\"],[\"close-element\"],[\"close-element\"],[\"text\",\"\\n       \"],[\"close-element\"],[\"text\",\"\\n    \"],[\"close-element\"],[\"text\",\"\\n\\n    \"],[\"open-element\",\"tbody\",[]],[\"flush-element\"],[\"text\",\"\\n\"],[\"block\",[\"each\"],[[\"get\",[\"model\"]]],null,0],[\"text\",\"    \"],[\"close-element\"],[\"text\",\"\\n  \"],[\"close-element\"],[\"text\",\"\\n\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[{\"statements\":[[\"text\",\"       \"],[\"open-element\",\"tr\",[]],[\"flush-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"transactions\",\"created_at\"]],false],[\"close-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"transactions\",\"counterparty_name\"]],false],[\"close-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"transactions\",\"operation_type\"]],false],[\"close-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"transactions\",\"amount\"]],false],[\"append\",[\"unknown\",[\"transaction\",\"currency\"]],false],[\"close-element\"],[\"text\",\"\\n        \"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[\"transactions\"]}],\"hasPartials\":false}", "meta": { "moduleName": "finpal/templates/index.hbs" } });
+  exports["default"] = Ember.HTMLBars.template({ "id": "45GiDib1", "block": "{\"statements\":[[\"open-element\",\"h1\",[]],[\"flush-element\"],[\"text\",\"Home Page\"],[\"close-element\"],[\"text\",\"\\n\"],[\"open-element\",\"div\",[]],[\"static-attr\",\"class\",\"table-responsive\"],[\"flush-element\"],[\"text\",\"\\n  \"],[\"open-element\",\"table\",[]],[\"static-attr\",\"class\",\"table\"],[\"flush-element\"],[\"text\",\"\\n    \"],[\"open-element\",\"thead\",[]],[\"flush-element\"],[\"text\",\"\\n      \"],[\"open-element\",\"tr\",[]],[\"flush-element\"],[\"text\",\"\\n        \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"open-element\",\"b\",[]],[\"flush-element\"],[\"text\",\"DD-MM-YYY\"],[\"close-element\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"text\",\"counterpartyName\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"text\",\"Payment type\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"text\",\"Amount\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"th\",[]],[\"flush-element\"],[\"open-element\",\"span\",[]],[\"static-attr\",\"class\",\"glyphicon glyphicon-paperclip\"],[\"flush-element\"],[\"close-element\"],[\"close-element\"],[\"text\",\"\\n       \"],[\"close-element\"],[\"text\",\"\\n    \"],[\"close-element\"],[\"text\",\"\\n\\n    \"],[\"open-element\",\"tbody\",[]],[\"flush-element\"],[\"text\",\"\\n\"],[\"block\",[\"each\"],[[\"get\",[\"model\"]]],null,0],[\"text\",\"    \"],[\"close-element\"],[\"text\",\"\\n  \"],[\"close-element\"],[\"text\",\"\\n\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[{\"statements\":[[\"text\",\"       \"],[\"open-element\",\"tr\",[]],[\"flush-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"transactions\",\"created_at\"]],false],[\"close-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"transactions\",\"counterparty_name\"]],false],[\"close-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"transactions\",\"operation_type\"]],false],[\"close-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"transactions\",\"signe\"]],false],[\"append\",[\"unknown\",[\"transactions\",\"amount\"]],false],[\"append\",[\"unknown\",[\"transaction\",\"currency\"]],false],[\"open-element\",\"span\",[]],[\"dynamic-attr\",\"class\",[\"concat\",[\"glyphicon \",[\"unknown\",[\"transaction\",\"currencySymbol\"]]]]],[\"flush-element\"],[\"close-element\"],[\"close-element\"],[\"text\",\"\\n         \"],[\"open-element\",\"td\",[]],[\"flush-element\"],[\"text\",\"\\n           \"],[\"open-element\",\"a\",[]],[\"dynamic-attr\",\"href\",[\"concat\",[[\"unknown\",[\"transactions\",\"url\"]]]]],[\"flush-element\"],[\"open-element\",\"span\",[]],[\"static-attr\",\"class\",\"glyphicon glyphicon-paperclip\"],[\"flush-element\"],[\"close-element\"],[\"close-element\"],[\"text\",\"\\n           \"],[\"append\",[\"unknown\",[\"transactions\",\"size\"]],false],[\"close-element\"],[\"text\",\"\\n        \"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[\"transactions\"]}],\"hasPartials\":false}", "meta": { "moduleName": "finpal/templates/index.hbs" } });
 });
 define("finpal/templates/navbar", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template({ "id": "py78nrky", "block": "{\"statements\":[[\"open-element\",\"nav\",[]],[\"static-attr\",\"class\",\"navbar navbar-left\"],[\"flush-element\"],[\"text\",\"\\n  \"],[\"open-element\",\"div\",[]],[\"static-attr\",\"class\",\"container-fluid\"],[\"flush-element\"],[\"text\",\"\\n    \"],[\"open-element\",\"div\",[]],[\"static-attr\",\"class\",\"navbar-header\"],[\"flush-element\"],[\"text\",\"\\n      \"],[\"open-element\",\"button\",[]],[\"static-attr\",\"type\",\"button\"],[\"static-attr\",\"class\",\"navbar-toggle collapsed\"],[\"static-attr\",\"data-toggle\",\"collapse\"],[\"static-attr\",\"data-target\",\"#main-navbar\"],[\"flush-element\"],[\"text\",\"\\n        \"],[\"open-element\",\"span\",[]],[\"static-attr\",\"class\",\"sr-only\"],[\"flush-element\"],[\"text\",\"Toggle navigation\"],[\"close-element\"],[\"text\",\"\\n        \"],[\"open-element\",\"span\",[]],[\"static-attr\",\"class\",\"icon-bar\"],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n        \"],[\"open-element\",\"span\",[]],[\"static-attr\",\"class\",\"icon-bar\"],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n        \"],[\"open-element\",\"span\",[]],[\"static-attr\",\"class\",\"icon-bar\"],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n      \"],[\"close-element\"],[\"text\",\"\\n      \"],[\"block\",[\"link-to\"],[\"index\"],[[\"class\"],[\"navbar-brand\"]],0],[\"text\",\"\\n    \"],[\"close-element\"],[\"text\",\"\\n\\n    \"],[\"open-element\",\"div\",[]],[\"static-attr\",\"class\",\"collapse navbar-collapse\"],[\"static-attr\",\"id\",\"main-navbar\"],[\"flush-element\"],[\"text\",\"\\n      \"],[\"open-element\",\"ul\",[]],[\"static-attr\",\"class\",\"nav navbar-nav\"],[\"flush-element\"],[\"text\",\"\\n        \"],[\"open-element\",\"dl\",[]],[\"flush-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"dt\",[]],[\"flush-element\"],[\"text\",\"Overview\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"dt\",[]],[\"flush-element\"],[\"text\",\"Transactions ()\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"dt\",[]],[\"flush-element\"],[\"text\",\"Transfers ()\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"dt\",[]],[\"flush-element\"],[\"text\",\"Invoices ()\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"dt\",[]],[\"flush-element\"],[\"text\",\"Manage cards\"],[\"close-element\"],[\"text\",\"\\n          \"],[\"open-element\",\"dt\",[]],[\"flush-element\"],[\"text\",\"Manage accounts\"],[\"close-element\"],[\"text\",\"\\n        \"],[\"close-element\"],[\"text\",\"\\n      \"],[\"close-element\"],[\"text\",\"\\n    \"],[\"close-element\"],[\"comment\",\" /.navbar-collapse \"],[\"text\",\"\\n  \"],[\"close-element\"],[\"comment\",\" /.container-fluid \"],[\"text\",\"\\n\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[{\"statements\":[[\"text\",\"Finpal\"]],\"locals\":[]}],\"hasPartials\":false}", "meta": { "moduleName": "finpal/templates/navbar.hbs" } });
@@ -325,7 +347,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("finpal/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"finpal","version":"0.0.0+a21cd599"});
+  require("finpal/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"finpal","version":"0.0.0+7990149a"});
 }
 
 /* jshint ignore:end */
